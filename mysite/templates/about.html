@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<style>
+/* Your custom styles here */
+  body {
+           background-color: #141218;
+            color: #D1D7DC;
+            font-family: 'Fira Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+           .result-container {
+            background-color: #1E1E23;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 3.8);
+            max-width: 99%;
+            text-align: center;
+        }
+        footer {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+}
+
+.rainbow-bg{
+		animation: rainbow-bg 2.5s linear;
+		animation-iteration-count: infinite;
+}
+
+.rainbow{
+		animation: rainbow 2.5s linear;
+		animation-iteration-count: infinite;
+}
+
+@keyframes rainbow-bg{
+		100%,0%{
+			background-color: rgb(255,0,0);
+		}
+		8%{
+			background-color: rgb(255,127,0);
+		}
+		16%{
+			background-color: rgb(255,255,0);
+		}
+		25%{
+			background-color: rgb(127,255,0);
+		}
+		33%{
+			background-color: rgb(0,255,0);
+		}
+		41%{
+			background-color: rgb(0,255,127);
+		}
+		50%{
+			background-color: rgb(0,255,255);
+		}
+		58%{
+			background-color: rgb(0,127,255);
+		}
+		66%{
+			background-color: rgb(0,0,255);
+		}
+		75%{
+			background-color: rgb(127,0,255);
+		}
+		83%{
+			background-color: rgb(255,0,255);
+		}
+		91%{
+			background-color: rgb(255,0,127);
+		}
+}
+
+@keyframes rainbow{
+		100%,0%{
+			color: rgb(255,0,0);
+		}
+		8%{
+			color: rgb(255,127,0);
+		}
+		16%{
+			color: rgb(255,255,0);
+		}
+		25%{
+			color: rgb(127,255,0);
+		}
+		33%{
+			color: rgb(0,255,0);
+		}
+		41%{
+			color: rgb(0,255,127);
+		}
+		50%{
+			color: rgb(0,255,255);
+		}
+		58%{
+			color: rgb(0,127,255);
+		}
+		66%{
+			color: rgb(0,0,255);
+		}
+		75%{
+			color: rgb(127,0,255);
+		}
+		83%{
+			color: rgb(255,0,255);
+		}
+		91%{
+			color: rgb(255,0,127);
+		}
+}
+/* Remove custom styles for navigation bar */
+
+</style>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'Home' %}">TextUtils</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Style2' %}">Style2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'About' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Home' %}">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- The rest of your content -->
+
+<div class="typewriter">
+    <h1 id="typewriter-text"></h1>
+  </div>
+ <div class='demo rainbow-bg'></div>
+ <div class='demo rainbow'><h2>TextUtils</h2></div>
+ A cutting-edge text processing application, is designed to simplify your text manipulation needs. <i><b>Developed by the developer Tanmoy Malakar</b></i>, this app offers a wide array of features to enhance your text processing experience. Whether you need to transform text to uppercase, count words and characters, remove extra spaces and punctuation, or conveniently copy the results to your clipboard, TextUtils has got you covered.</p>
+ <div class="result-container">
+ <h3 style="color:rgb(206, 24, 12)">Key Features:</h3>
+ <ol>
+     <li><b style="color:rgb(206, 24, 12)">Uppercase Transformation</b>: With TextUtils, you can easily convert your input text to uppercase. This feature is incredibly useful for creating headlines, titles, or emphasizing certain portions of text.</li><br>
+     <li><b style="color:rgb(255, 247, 0)">Word and Character Count</b>: Ever needed to know how many words or characters are in a piece of text? TextUtils provides accurate word and character counting, helping you manage your content better.</li><br>
+     <li><b style="color:rgb(54, 255, 0)">Space and Punctuation Remove</b>: Tired of dealing with excessive spaces or unwanted punctuation marks? TextUtils can effortlessly remove extra spaces and punctuation from your text, making it cleaner and more readable.</li><br>
+     <li><b style="color:rgb(108, 0, 255)">Clipboard Functionality</b>: Once you've processed your text, the resulting output is ready to be copied to your clipboard with just a click. This makes it seamless to reuse the modified text in other applications or documents.</li><br>
+
+ </ol><br>
+
+ <h3>Technologies Used:</h3>
+
+ <ol>
+     <li><b style="color:rgb(205, 101, 14)">Frontend Development:</b> TextUtils employs a user-friendly HTML and CSS interface to ensure an intuitive and aesthetically pleasing user experience. The HTML structure defines the layout of the app, while CSS styles enhance its visual appeal.</li><br>
+     <li><b style="color:rgb(6, 255, 100)">javaScript:</b> Interactive elements and dynamic behaviors are implemented using JavaScript. This enables real-time transformations and a smooth user experience.</li><br>
+     <li><b style="color:rgb(253, 135, 255)">Backend Development:</b> The powerful combination of Python and Django on the backend ensures the efficient processing of text and the seamless interaction between the frontend and backend components.<br>
+
+</li>
+ </ol>
+ </div>
+<footer>
+  <p>Author: Tanmoy Malakar<br>
+  <a href="malakartanmoy97@gmail.com">malakartanmoy97@gmail.com</a></p>
+</footer>
+<!-- Bootstrap scripts -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+  <script>
+    const typed = new Typed('#typewriter-text', {
+      strings: ["Introducing TextUtils App: Streamline Your Text Processing Tasks....."],
+      typeSpeed: 50,     // Typing speed in milliseconds
+      backSpeed: 25,     // Backspacing speed in milliseconds
+      startDelay: 500,   // Delay before typing starts in milliseconds
+      backDelay: 1000,   // Delay before backspacing starts in milliseconds
+      loop: true,        // Loop the animation
+      showCursor: false,  // Show blinking cursor
+    });
+  </script>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Your Analyzed Text....</title>
+    <style>
+        body {
+            background-color: #141218;
+            color: #D1D7DC;
+            font-family: 'Fira Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center; /* Horizontally center */
+            align-items: center; /* Vertically center */
+            height: 100vh; /* Set container height to 100% of viewport height */
+        }
+
+        .result-container {
+            background-color: #1E1E23;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+            max-width: 80%;
+            text-align: center;
+        }
+           .result-container1 {
+            background-color: #1E1E23;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+            max-width: 90%;
+            text-align: center;
+            margin-top:26px;
+            margin-left:95px
+        }
+
+        h1 {
+            color: #D1D7DC;
+        }
+
+        h2 {
+            color: #A9B2C3;
+        }
+        .copy-button {
+            display: inline-block;
+            background-color: #3E8F3E;
+            color: #FFF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .copy-button:hover {
+            background-color: #2A6E2A;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+ <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'Home' %}">TextUtils</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Style2' %}">Style2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'About' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Home' %}">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+ <div class="result-container1">
+<h1 style="color:White">Hello -- Your analyzed text is {{ purpose }}</h1>
+ </div>
+    <div class="center-container">
+        <div class="result-container">
+            <p><h2>Result is : {{ analyzed_text }}</h2></p>
+            <button class="copy-button" data-text="{{ analyzed_text }}">Copy to Clipboard</button>
+        </div>
+    </div>
+<script>
+    $(document).ready(function() {
+            $(".copy-button").click(function() {
+                const resultText = $(this).data("text");
+                const $tempInput = $("<textarea>");
+                $("body").append($tempInput);
+                $tempInput.val(resultText).select();
+                document.execCommand("copy");
+                $tempInput.remove();
+                alert("Text copied to clipboard!");
+            });
+        });
+    </script>
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+</body>
+</html>

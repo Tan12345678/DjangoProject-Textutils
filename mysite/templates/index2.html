@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template is working</title>
+</head>
+<body>
+<h1>Welcome to text analyzer . First Demo website on Django.</h1>
+<form action='/analyze' method="get">
+    <textarea name='text' style="margin: 0px;width: 1403px;height: 230px;"></textarea>
+    <input type="checkbox"  name="removepunc">Remove the punctuation<br>
+    <input type="checkbox"  name="removespace">Remove Extra space<br>
+    <input type="checkbox" name="Uppercase"> Uppercase<br>
+    <input type="checkbox" name="GrammarCheck"> Correct Grammar(Experimental) <br>
+    <input type="checkbox" name="Wordcount">word count <br>
+    <input type="checkbox" name="CharCount"> char count <br>
+
+    <button type="submit" id="btn" style="margin-top:5px">Analyze Test</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Template is working</title>
+    <style>
+        body {
+           background-color: #141218;
+            color: #D1D7DC;
+            font-family: 'Fira Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+          .result-container {
+            background-color: #1E1E23;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+            max-width: 99%;
+            text-align: center;
+        }
+
+        .form {
+            padding: 0 16px;
+            max-width: 550px;
+            margin: 50px auto;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 36px;
+        }
+         .glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+        .inputGroup {
+            background-color: #fff;
+            display: block;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .inputGroup label {
+            padding: 12px 30px;
+            width: 100%;
+            display: block;
+            text-align: left;
+            color: #3C454C;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: color 200ms ease-in;
+            overflow: hidden;
+        }
+
+        .inputGroup label:before {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            content: '';
+            background-color: #5562eb;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale3d(1, 1, 1);
+            transition: all 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .inputGroup label:after {
+            width: 32px;
+            height: 32px;
+            content: '';
+            border: 2px solid #D1D7DC;
+            background-color: #fff;
+            background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+            background-repeat: no-repeat;
+            background-position: 2px 3px;
+            border-radius: 50%;
+            z-index: 2;
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            transition: all 200ms ease-in;
+        }
+
+        .inputGroup input:checked ~ label {
+            color: #fff;
+        }
+
+        .inputGroup input:checked ~ label:before {
+            transform: translate(-50%, -50%) scale3d(56, 56, 1);
+            opacity: 1;
+        }
+
+        .inputGroup input:checked ~ label:after {
+            background-color: #54E0C7;
+            border-color: #54E0C7;
+        }
+
+        .inputGroup input {
+            width: 32px;
+            height: 32px;
+            order: 1;
+            z-index: 2;
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            visibility: hidden;
+        }
+
+        .text-area {
+            margin: 0px;
+            width: 100%;
+            height: 230px;
+        }
+
+        .btn {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'Home' %}">TextUtils</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Style2' %}">Style2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'About' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Home' %}">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="result-container">
+    <h1>Welcome to text analyzer. First Demo website on Django.</h1>
+</div>
+  <div class="typewriter">
+    <h1 id="typewriter-text"></h1>
+  </div>
+    <form action='/analyze' method="post" class="form">{% csrf_token %}
+        <textarea name='text' class="text-area"></textarea>
+        <div class="inputGroup">
+            <input id="removepunc" name="removepunc" type="checkbox"/>
+            <label for="removepunc">Remove the punctuation</label>
+        </div>
+        <div class="inputGroup">
+            <input id="removespace" name="removespace" type="checkbox"/>
+            <label for="removespace">Remove Extra space</label>
+        </div>
+        <div class="inputGroup">
+            <input id="Uppercase" name="Uppercase" type="checkbox"/>
+            <label for="Uppercase">Uppercase</label>
+        </div>
+        <div class="inputGroup">
+            <input id="GrammarCheck" name="GrammarCheck" type="checkbox"/>
+            <label for="GrammarCheck">Correct Grammar (Experimental)</label>
+        </div>
+        <div class="inputGroup">
+            <input id="Wordcount" name="Wordcount" type="checkbox"/>
+            <label for="Wordcount">Word count</label>
+        </div>
+        <div class="inputGroup">
+            <input id="CharCount" name="CharCount" type="checkbox"/>
+            <label for="CharCount">Character count</label>
+        </div>
+        <div class="inputGroup">
+            <input id="CapFirst" name="CapFirst" type="checkbox"/>
+            <label for="CapFirst">Capitalize First</label>
+        </div>
+        <button class="glow-on-hover" type="submit" style="width:548px">Analyze!!</button>
+    </form>
+</body>
+ <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script>
+    const typed = new Typed('#typewriter-text', {
+      strings: ["The TextUtils....Enter The Text Here......!!...................!"],
+      typeSpeed: 50,     // Typing speed in milliseconds
+      backSpeed: 25,     // Backspacing speed in milliseconds
+      startDelay: 500,   // Delay before typing starts in milliseconds
+      backDelay: 1000,   // Delay before backspacing starts in milliseconds
+      loop: true,        // Loop the animation
+      showCursor: false,  // Show blinking cursor
+    });
+  </script>
+</html>
